@@ -17,5 +17,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0"
   }
 }
