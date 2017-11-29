@@ -1,1 +1,2 @@
-w
+test fork
+test after fork 
