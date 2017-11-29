@@ -1,5 +1,6 @@
 a. 运行项目 node server/server.js
 
 
-1.安装所有模块  需要用 -save 以遍管理
+1.安装所有模块  需要用 -save 以便管理
 2.所有文件用es6语法去写
+3.node模块不提交
