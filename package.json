@@ -7,8 +7,9 @@
     "example": "examples"
   },
   "scripts": {
+    "dev" : "   rollup -w -c & node server/server.js",
     "build": "babel-node server/server.js",
-    "push" : "git push -u origin master"
+    "push": "git push -u origin master"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "rollup": "^0.52.0",
+    "rollup-watch": "^4.3.1"
   }
 }

@@ -3,7 +3,8 @@ export default [{
   input: 'src/core/rv.js',
   output: {
     file: './dist/rv.js',
-    format: 'umd'
+    format: 'umd',
+    moduleName: '$$$',
   },
   treeshake : false
 }];
