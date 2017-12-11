@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-
         rv: './src/core/rv.js',
         lib: ['vue'],
     },
@@ -23,7 +22,11 @@ module.exports = {
             filename: "lib.js",
             
         }),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.resolve(__dirname,'../../src/core/index.html'),
+            // staticPath: _config.staticPath
+        })
     ],
     module: {
         rules: [
