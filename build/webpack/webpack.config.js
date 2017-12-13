@@ -1,43 +1,20 @@
-const path = require('path');
-const glob = require('glob');
+const $c = require('../config.js');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const _root = "../../examples_spa";
+let entry = require('./entry.js');
+let plugins = require('./plugins.js')
 
-let arr = glob.sync("examples_spa"+'/**/page.js', { nodir: true });
-let entrys = {};
-let plugins = [];
-
-
-arr.forEach((a) => {
-    let key = a.replace('examples_spa/','').split(/\/page.js/)[0];
-    entrys[key+"/page"] = path.join(__dirname,"../../"+a);
-
-    plugins.push(new HtmlWebpackPlugin({
-        filename: key+'/index.html',
-        template: path.join(__dirname,_root+"/"+key+"/index.html"),
-        config: "aaa",
-        chunks: ["lib",key]
-    }))
-})
-
-entrys.lib = ['vue','jquery'];
-plugins.push(new webpack.optimize.CommonsChunkPlugin({
-    name: "lib",
-    filename: "lib.js"
-}))
 
 
 module.exports = {
-    entry: entrys,
+    entry: entry,
     output: {
-        path: path.join(__dirname, '../../dist'),
+        path: $c.root + 'dist',
         filename: "[name].js"
     },
     devServer: {
-        contentBase: path.join(__dirname, '../../dist'),
-        compress: true,
+        contentBase: $c.root + 'dist',
+        compress: false,
         port: 8082
     },
     plugins: plugins,
