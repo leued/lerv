@@ -1,11 +1,13 @@
 const path = require('path');
 const Root = path.join(__dirname + '/../');
-const spaName = "examples_spa";
+const webpack = require('webpack');
+const fs = require('fs');
+
 const Config =  {
 	root : Root,
-	spaRoot : Root +spaName+'/',
-	spaName : spaName,
-	path : path
+	path : path,
+	webpack : webpack,
+	fs : fs
 }
 
 module.exports = Config;
