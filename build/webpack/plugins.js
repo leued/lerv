@@ -1,4 +1,4 @@
-const $c = require('../config.js');
+const $c = require('./config.js');
 const keylist  = require('./keylist.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 let plugins = [];
@@ -9,4 +9,10 @@ keylist.forEach((item) => {
         chunks: ['lib',item + '/page']
     }))
 })
+
+plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
+    name: "lib",
+    filename: "lib.js"
+}))
+
 module.exports =  plugins;

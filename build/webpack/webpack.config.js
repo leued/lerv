@@ -1,5 +1,4 @@
-const $c = require('../config.js');
-const webpack = require('webpack');
+const $c = require('./config.js');
 
 let entry = require('./entry.js');
 let plugins = require('./plugins.js')
