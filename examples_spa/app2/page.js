@@ -1,4 +1,4 @@
-let css = require('./styles/common.less');
+import './styles/common.less';
 import Vue from  'vue';
 var app = new Vue({
   el: '#app',
