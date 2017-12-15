@@ -5,5 +5,5 @@ keylist.forEach((item) => {
     entry[item + '/page'] = $c.root +item + '/page.js';
 })
 
-entry.lib = ['vue','vue-router'];
+entry.vendor = ['vue','vue-router'];
 module.exports =  entry;

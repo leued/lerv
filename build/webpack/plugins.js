@@ -7,14 +7,15 @@ keylist.forEach((item) => {
     plugins.push(new HtmlWebpackPlugin({
         filename: item+'/index.html',
         template: $c.root+'/'+item + '/index.html',
-        chunks: ['lib',item + '/page']
+        chunks: ['vendor',item + '/page']
     }))
 })
 
 plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
-    name: "lib",
-    filename: "lib.js"
+    name: "vendor",
+    filename: "vendor.js"
 }))
+
 
 plugins.push(new initHtml({
 	path: $c.productRoot + "_g/content.html"
