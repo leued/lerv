@@ -13,7 +13,8 @@ module.exports = {
     devServer: {
         contentBase: $c.root + 'dist',
         compress: false,
-        port: 8082
+        port: 8082,
+		inline: true
     },
     plugins:plugins,
     module: {

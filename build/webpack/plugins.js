@@ -22,9 +22,8 @@ plugins.push(new initHtml({
 	path: $c.productRoot + "_g/content.html"
 }))
 plugins.push(new ExtractTextPlugin({
-	filename:  (getPath) => {
-			return getPath('/[name].css');
-	},
+	filename: '[name].css',
 	allChunks: true
 }))
+
 module.exports =  plugins;
