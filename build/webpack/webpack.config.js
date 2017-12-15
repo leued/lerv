@@ -1,8 +1,7 @@
 const $c = require('./config.js');
-
 let entry = require('./entry.js');
 let plugins = require('./plugins.js')
-
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
@@ -16,16 +15,28 @@ module.exports = {
         compress: false,
         port: 8082
     },
-    plugins: plugins,
+    plugins:plugins,
     module: {
         rules: [
             { 
                 test: /\.js$/, 
                 exclude: /node_modules/, 
                 loader: "babel-loader" 
+            },
+			{
+                test: /\.(css|less)$/,  
+                use: ExtractTextPlugin.extract({  
+                    fallback: 'style-loader',  
+                    use: [  
+                        'css-loader',
+						'less-loader',
+                        'autoprefixer-loader'
+                    ]  
+                })  
             }
         ]
     },
+	
     resolve: {
         alias: {
           'vue': 'vue/dist/vue.js'

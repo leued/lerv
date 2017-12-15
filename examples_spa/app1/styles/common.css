@@ -1,0 +1,11 @@
+@import url(font.css);
+html, body, #root {
+  background:#EAE9E9;
+  text-align:center;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.container {
+  text-align: center;
+}
