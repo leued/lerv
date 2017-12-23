@@ -1,10 +1,9 @@
-import './styles/common.css';
+
 import Vue from  'vue';
+import a from  './app.vue';
 var app = new Vue({
   el: '#app',
-  data: {
-    message: 'Hello first App'
-  },
+  render: h => h(a)
 })
 
 

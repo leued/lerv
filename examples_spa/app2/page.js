@@ -1,4 +1,4 @@
-import './styles/common.less';
+// import './styles/common.less';
 import Vue from  'vue';
 var app = new Vue({
   el: '#app',
@@ -6,3 +6,6 @@ var app = new Vue({
     message: '我是第二个应用哦'
   }
 })
+
+
+alert(123123)
