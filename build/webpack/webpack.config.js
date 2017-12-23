@@ -34,13 +34,20 @@ module.exports = {
                         'autoprefixer-loader'
                     ]  
                 })  
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    extractCSS: true
+                }
             }
         ]
     },
 	
     resolve: {
         alias: {
-          'vue': 'vue/dist/vue.js'
+          'vue': 'vue/dist/vue.runtime.esm.js'
         }
     }
 };
