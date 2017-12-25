@@ -2,7 +2,7 @@ const $c = require('./config.js');
 const keylist  = require('./keylist.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const initHtml = require('./plugins/initHtml.js');
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let plugins = [];
 keylist.forEach((item) => {
 
@@ -27,13 +27,7 @@ plugins.push(new initHtml({
 	path: $c.productRoot + "_g/content.html"
 }))
 plugins.push(new ExtractTextPlugin({
-	filename : (getPath) => {
-		return getPath("[name].css")
-	}
-}));
-// plugins.push(new ExtractTextPlugin({
-// 	filename: '[name].css',
-// 	allChunks: true
-// }))
+	filename: '[name].css',
+}))
 
 module.exports =  plugins;

@@ -1,9 +1,6 @@
 const $c = require('./config.js');
 let entry = require('./entry.js');
 let plugins = require('./plugins.js')
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-
 module.exports = {
     entry: entry,
     output: {
@@ -26,7 +23,7 @@ module.exports = {
             },
 			{
                 test: /\.(css|less)$/,  
-                use: ExtractTextPlugin.extract({  
+                use: $c.ExtractTextPlugin.extract({  
                     fallback: 'style-loader',  
                     use: [  
                         'css-loader',
