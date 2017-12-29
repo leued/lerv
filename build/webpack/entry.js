@@ -5,7 +5,7 @@ keylist.forEach((item) => {
     entry[item + '/page'] = $c.root +item + '/page.js';
 })
 
-entry.vendor = ['vue','vue-router',$c.productStatic + 'css/base.js'];
+entry.vendor = ['vue','vue-router'];
 entry.common = $c.root + $c.commonStylePath + '/common.css';
 
 module.exports =  entry;

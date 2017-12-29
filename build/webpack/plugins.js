@@ -5,7 +5,7 @@ const initHtml = require('./plugins/initHtml.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let plugins = [];
 keylist.forEach((item) => {
-
+	
     plugins.push(new HtmlWebpackPlugin({
         filename: item+'/index.html',
         template: $c.root+'/'+item + '/index.html',
@@ -26,6 +26,12 @@ plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
 plugins.push(new initHtml({
 	path: $c.productRoot + "_g/content.html"
 }))
+// chunk(entry chunks)中引用的 *.css 
+plugins.push(new ExtractTextPlugin({
+		filename: 'commom.css',
+	}))
+
+//解析所有vue中的css
 plugins.push(new ExtractTextPlugin({
 	filename: '[name].css',
 }))

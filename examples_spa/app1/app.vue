@@ -15,6 +15,6 @@ export default {
 
 <style>
 .example {
-  color: red;
+  color: #000;
 }
 </style>
