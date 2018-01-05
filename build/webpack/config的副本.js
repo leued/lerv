@@ -1,10 +1,9 @@
 const Config = require('../config.js');
-const productName = "examples";
+const productName = "examples_spa";
 const _Config = {
 	productName : productName,
 	productRoot : Config.root +productName+'/',
-	productStatic : Config.root +productName+'/' + 'static/',
-	commonStylePath : productName + '/style'
+	productStatic : Config.root +productName+'/' + 'static/'
 }
 
 

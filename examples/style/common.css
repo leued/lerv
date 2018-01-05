@@ -9,3 +9,4 @@ html, body, #root {
 .container {
   text-align: center;
 }
+div{border:1px solid red;}

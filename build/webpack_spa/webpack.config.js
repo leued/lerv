@@ -4,7 +4,7 @@ let plugins = require('./plugins.js')
 module.exports = {
     entry: entry,
     output: {
-        path: $c.root + 'dist',
+        path: $c.root + 'dist/spa',
         filename: "[name].js"
     },
     devServer: {
@@ -44,10 +44,7 @@ module.exports = {
 	
     resolve: {
         alias: {
-          'vue': 'vue/dist/vue.runtime.esm.js'
-        },
-        alias: {
-          'vue-router': 'vue-router/dist/vue-router.esm.js'
+          'vue': 'vue/dist/vue.js'
         }
     }
 };

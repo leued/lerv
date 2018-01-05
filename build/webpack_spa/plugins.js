@@ -1,25 +1,14 @@
 const $c = require('./config.js');
-const keylist  = require('./keylist.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const initHtml = require('./plugins/initHtml.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let plugins = [];
-keylist.forEach((item) => {
-	
-    plugins.push(new HtmlWebpackPlugin({
-        filename: item+'/index.html',
-        template: $c.root+item + '/index.html',
-        chunks: ['vendor',item + '/page']
-    }))
-
-    
-})
 
 plugins.push(new HtmlWebpackPlugin({
-        filename: $c.productName + '/index.html',
-        template: $c.productRoot +  'index.html',
-        chunks: ['vendor']
-    }))
+			filename: $c.productName + '/index.html',
+			template: $c.root+ $c.productName + '/index.html',
+			chunks: ['vendor','app']
+}))
 
 
 plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
@@ -40,9 +29,9 @@ plugins.push(new ExtractTextPlugin({
 		filename: 'commom.css',
 	}))
 
-//解析所有vue中的css
-plugins.push(new ExtractTextPlugin({
-	filename: '[name].css',
-}))
+// //解析所有vue中的css
+// plugins.push(new ExtractTextPlugin({
+// 	filename: '[name].css',
+// }))
 
 module.exports =  plugins;
