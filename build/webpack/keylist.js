@@ -7,9 +7,11 @@ let keylist = [];
 */
 
 let arr = glob.sync( $c.productName+'/**/page.js', { nodir: false });
+
 arr.forEach((item) => {
-    let key = item.split(/\/page.js/)[0];
+    let key = item.split(/\/page.js/)[0].replace($c.productName + '\/','');
     keylist.push(key);
 })
+
 // [ 'app1', 'app2' ]
 module.exports =  keylist;

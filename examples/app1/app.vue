@@ -15,7 +15,7 @@ export default {
 
 <style>
 .example {
-  color: #000;
+  color: #fff;
 }
 </style>
 

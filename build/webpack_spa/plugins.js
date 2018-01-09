@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 let plugins = [];
 
 plugins.push(new HtmlWebpackPlugin({
-			filename: $c.productName + '/index.html',
+			filename:  'index.html',
 			template: $c.root+ $c.productName + '/index.html',
 			chunks: ['vendor','app']
 }))
