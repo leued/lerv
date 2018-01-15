@@ -28,6 +28,7 @@ plugins.push(new initHtml({
 
 plugins.push(new ExtractTextPlugin({
 	filename: '[name].css',
+	allChunks: true
 }))
 
 plugins.push(new BundleAnalyzerPlugin({

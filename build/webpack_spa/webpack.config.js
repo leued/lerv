@@ -27,9 +27,7 @@ module.exports = {
                 use: $c.ExtractTextPlugin.extract({  
                     fallback: 'style-loader',  
                     use: [  
-                        'css-loader',
-						'less-loader',
-                        'autoprefixer-loader'
+                        'css-loader'
                     ]  
                 })  
             },
@@ -37,7 +35,7 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                    extractCSS: true
+                    extractCSS: false
                 }
             }
         ]

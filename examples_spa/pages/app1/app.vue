@@ -1,9 +1,13 @@
 
 <template>
+<div>
+  <test></test>
   <div class="example" v-on:click="reverseMessage">{{ msg }}</div>
+  </div>
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -18,9 +22,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.example {
-  color: #6699cc;
+<style>
+.example{
+  color :#6699cc;
 }
 </style>
 
