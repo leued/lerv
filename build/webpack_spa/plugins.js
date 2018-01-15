@@ -2,36 +2,36 @@ const $c = require('./config.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const initHtml = require('./plugins/initHtml.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 let plugins = [];
 
 plugins.push(new HtmlWebpackPlugin({
 			filename:  'index.html',
 			template: $c.root+ $c.productName + '/index.html',
-			chunks: ['vendor','app']
+			chunks: ['vendor','index']
 }))
 
 
 plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
     name: "vendor",
-    filename: "vendor.js"
+    filename: "vendor.js",
+    minChunks : Infinity
 }))
-// plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
-//     name: "basecss",
-//     filename: "base.js"
-// }))
+
 
 
 plugins.push(new initHtml({
 	path: $c.productRoot + "_g/content.html"
 }))
-// chunk(entry chunks)中引用的 *.css 
-plugins.push(new ExtractTextPlugin({
-		filename: 'commom.css',
-	}))
 
-// //解析所有vue中的css
-// plugins.push(new ExtractTextPlugin({
-// 	filename: '[name].css',
-// }))
+
+
+plugins.push(new ExtractTextPlugin({
+	filename: '[name].css',
+}))
+
+plugins.push(new BundleAnalyzerPlugin({
+    openAnalyzer:false
+}));
 
 module.exports =  plugins;

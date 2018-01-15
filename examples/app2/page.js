@@ -7,5 +7,3 @@ var app = new Vue({
   }
 })
 
-
-alert(123123)

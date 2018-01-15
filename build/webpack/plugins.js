@@ -3,6 +3,7 @@ const keylist  = require('./keylist.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const initHtml = require('./plugins/initHtml.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 let plugins = [];
 keylist.forEach((item) => {
     plugins.push(new HtmlWebpackPlugin({
@@ -23,7 +24,8 @@ plugins.push(new HtmlWebpackPlugin({
 
 plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
     name: "vendor",
-    filename: "vendor.js"
+    filename: "vendor.js",
+    minChunks : Infinity
 }))
 // plugins.push(new $c.webpack.optimize.CommonsChunkPlugin({
 //     name: "basecss",
@@ -40,5 +42,9 @@ plugins.push(new initHtml({
 plugins.push(new ExtractTextPlugin({
 	filename: '[name].css',
 }))
+
+plugins.push(new BundleAnalyzerPlugin({
+    openAnalyzer:false
+}));
 
 module.exports =  plugins;

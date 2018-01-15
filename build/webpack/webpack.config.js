@@ -1,6 +1,5 @@
 const $c = require('./config.js');
 let entry = require('./entry.js');
-console.log(entry)
 let plugins = require('./plugins.js')
 module.exports = {
     entry: entry,
@@ -12,7 +11,7 @@ module.exports = {
         contentBase: $c.root + 'dist',
         compress: false,
         port: 8082,
-		inline: true
+        inline : false
     },
     plugins:plugins,
     module: {
