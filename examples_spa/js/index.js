@@ -2,11 +2,11 @@
 import Vue from  'vue';
 import VueRouter from 'vue-router';
 import routes from './router.js';
-import com from '../../components/index.js';
+import components from '../../components/index.js';
 
 
 Vue.use(VueRouter);
-Vue.use(com);
+Vue.use(components);
 
 
 

@@ -1,7 +1,8 @@
 
 <template>
 <div>
-  <test></test>
+  <div>{{page }}</div>
+  <calendar :initTime="initTime"></calendar>
   <div class="example" v-on:click="reverseMessage">{{ msg }}</div>
   </div>
 </template>
@@ -9,14 +10,18 @@
 <script>
 
 export default {
+  
   data () {
     return {
-      msg: 'Hello world!'
+      msg: '我是主页面',
+      page : '日历是主页面的组件',
+      initTime : '2018-04-01'
     }
   },
   methods : {
   	reverseMessage () {
-  		alert(123123)
+
+  		this.initTime = "2018-2-2"
   	}
   }
 }
