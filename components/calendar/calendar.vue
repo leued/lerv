@@ -1,22 +1,26 @@
 <template>
-
-
         <div class="ui-calendar">
         	<div>
-        		<button v-on:click="nextMonth()">下月</button>
+        		<input type="text" v-model="curTime">
         	</div>
-        	<div class="header">
-        		<span v-for="day in header" :key="day">{{day}}</span>
+        	<div class="ui-calendar-box">
+        		<div>
+        			{{showYear}}/{{showMonth}}
+	        		<button v-on:click="nextMonth()">下月</button>
+	        	</div>
+	        	<div class="header">
+	        		<span v-for="day in header" >{{day}}</span>
+	        	</div>
+	        	<div class="calendar">
+	        		<div class="first-row">
+	        			<div v-for="row in allData">
+	        				<span v-for="item in row"  @click="clickCell(item)">{{item.date}}</span>
+	        			</div>
+	        		</div>
+	        	</div>
         	</div>
-        	<div class="calendar">
-        		<div class="first-row">
-        			<div v-for="row in allData">
-        				<span v-for="item in row">{{item.day}}</span>
-        			</div>
-        		</div>
-        	</div>
+          <test></test>
         </div>
-
 </template>
 <script>
 import Vue from  'vue';
@@ -24,36 +28,59 @@ export default {
    props: ['initTime'],
    data () {
     	return {
-     		curTime : null
+     		curTime : null, //选中的日期	
+     		showYear : null,
+     		showMonth : null,
+     		showDate : null,
+     		showTime : null , //显示的日期
     	}
   },
   created (){
   	this.$set(this,'curTime',this.parseDate(this.initTime));
+  	this.$set(this,'showTime',this.parseDate(this.initTime));
   },
-  
+
+  watch : {
+  	initTime : function(){
+  		this.curTime = this.initTime;
+  	},
+  	showTime (){
+  		const _d = this.getShowTime();
+	  	this.$set(this,'showYear',_d.year);
+	  	this.$set(this,'showMonth',_d.month+1);
+	  	this.$set(this,'showDate',_d.date);
+  	}
+  },
   methods : {
+  	clickCell(data){
+  		 this.curTime = this.showYear + '/' + this.showMonth + '/' + data.date
+
+  	},
   	parseDate (aaa){
-  		
-  	
   		return aaa.replace(/-/g,'/')
   	},
+
   	nextMonth (){
-  		let time = new Date(this.curTime);
+  		let _time = this.showTime || this.curTime;
+  		let time = new Date(_time);
+  		time.setDate(1);
   		time.setMonth(time.getMonth()+1);
   		time= this.format(time);
-  		this.curTime= time;
+  		this.showTime = time;
 
   	},
   	format (data){
-  		
   		return data.getFullYear() + '/' + (data.getMonth()+1) + '/' + data.getDate()
   	},
-  	getCurTime : function(){
-  		
-  		const data = new Date(this.curTime);
-        const year = data.getFullYear(); //年     
-        const month = data.getMonth();    //月
-        const day = data.getDate();  //日
+  	setCurTime (){
+
+  	},
+  	getShowTime : function(){
+  		let _time = this.showTime || this.curTime;
+  		const _date = new Date(_time);
+        const year = _date.getFullYear(); //年     
+        const month = _date.getMonth();    //月
+        const date = _date.getDate();  //日
         // 月的第一天
         const startDay = new Date(year,month,1);
         //第一天是星期几 推算出第一行前面有几天
@@ -64,7 +91,7 @@ export default {
         	startDay ,
         	year,
         	month,
-        	day,
+        	date,
         	sdday,
         	lastDay
         }
@@ -77,7 +104,7 @@ export default {
   	},
   	allData(){
 
-  		const _d = this.getCurTime();
+  		const _d = this.getShowTime();
   		const lastDday  = _d.lastDay.getDate();
   		let num = _d.sdday;
   		let _allData =[]
@@ -88,7 +115,7 @@ export default {
   		}
   		for(let i = 1 ; i <= lastDday ; i++){
   			_data.push({
-  				day : i
+  				date : i
   			})
   			if(_data.length == 7){
   				_allData.push(_data);
@@ -113,6 +140,9 @@ export default {
 		background: #6699cc;
 		color: #fff;
 		width: 210px
+	}
+	.ui-calendar .on{
+		color: #c00
 	}
 	.ui-calendar .header span,.ui-calendar .calendar span{
 		display: inline-block;

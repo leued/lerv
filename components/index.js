@@ -1,22 +1,25 @@
-import Vue from  'vue';
+import Vue from 'vue';
 import test from './test';
-import calendar from './calendar';
+// import calendar from './calendar/index.js';
 
 
 
-var  components = {
-	test,
-	calendar
+var components = {
+    test,
+    // calendar
 }
 
-var  install = function(Vue, opts = {}) {
+var install = function(Vue, opts = {}) {
     Vue.component('test', components['test']);
-    Vue.component('calendar', components['calendar'])
+
+    Vue.component('calendar', () =>import (
+    	/* webpackChunkName: "calendar" */ 
+    	'./calendar'));
+    
 };
 var API = {
-	install,
-	// ...components
+    install,
+    // ...components
 }
 
-export default  API;
-
+export default API;

@@ -1,28 +1,36 @@
 
 <template>
-  <div class="example" v-on:click="reverseMessage">{{ msg }}</div>
+<div>
+  <div>2222</div>
+  <calendar   :initTime="initTime"></calendar>
+  <div class="example" @click="reverseMessage">{{ msg }}</div>
+  </div>
 </template>
 
 <script>
 
 export default {
+  
   data () {
     return {
-      msg: 'Hello world!3333333'
+      msg: '我是主页面',
+      page : '日历是主页面的组件',
+      initTime : '2018-01-30'
     }
   },
   methods : {
-  	reverseMessage () {
-  		alert(123123)
-  	}
+    reverseMessage () {
+
+      this.initTime = "2018-2-2";
+      // console.log(this.$data.initTime)
+    }
   }
 }
 </script>
 
-<style scoped>
-
-.example {
-  color :#fff;
+<style>
+.example{
+  color :#6699cc;
 }
 </style>
 
