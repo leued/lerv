@@ -1,9 +1,9 @@
 
 <template>
 <div>
-  <div>2222</div>
+  <div>1111111</div>
   <calendar   :initTime="initTime"></calendar>
-  <div class="example" @click="reverseMessage">{{ msg }}</div>
+  <div class="example" @click="reverseMessage">{{ msg }}111</div>
   </div>
 </template>
 
@@ -28,9 +28,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .example{
   color :#6699cc;
+  background: #000
 }
 </style>
 

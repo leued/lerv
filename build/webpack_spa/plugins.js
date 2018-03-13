@@ -31,8 +31,8 @@ plugins.push(new ExtractTextPlugin({
 	allChunks: true
 }))
 
-plugins.push(new BundleAnalyzerPlugin({
-    openAnalyzer:false
-}));
+// plugins.push(new BundleAnalyzerPlugin({
+//     openAnalyzer:true
+// }));
 
 module.exports =  plugins;

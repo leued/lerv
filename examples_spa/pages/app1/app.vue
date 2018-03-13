@@ -3,7 +3,7 @@
 <div>
   <div>{{page }}</div>
   <calendar   :initTime="initTime"></calendar>
-  <div class="example" @click="reverseMessage">{{ msg }}</div>
+  <div class="example" @click="reverseMessage">{{ msg }}111</div>
   </div>
 </template>
 
@@ -28,9 +28,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .example{
-  color :#6699cc;
+  color :#000;
 }
 </style>
 

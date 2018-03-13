@@ -1,3 +1,4 @@
+
 import Vue from 'vue';
 import test from './test';
 // import calendar from './calendar/index.js';
@@ -5,20 +6,20 @@ import test from './test';
 
 
 var components = {
-    test,
+    test
     // calendar
 }
 
 var install = function(Vue, opts = {}) {
     Vue.component('test', components['test']);
 
-    Vue.component('calendar', () =>import (
-    	/* webpackChunkName: "calendar" */ 
-    	'./calendar'));
+    Vue.component('calendar', ()=>import(
+		/* webpackChunkName: "calendar" */ 
+		'./calendar'));
     
 };
 var API = {
-    install,
+    install
     // ...components
 }
 
