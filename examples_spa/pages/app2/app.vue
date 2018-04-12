@@ -1,30 +1,61 @@
-
 <template>
-<div>
-  <div>1111111</div>
-  <calendar   :initTime="initTime"></calendar>
-  <div class="example" @click="reverseMessage">{{ msg }}111</div>
+  <div>
+      <section :is="com.component" :initTime="com.initTime" ></section>
+
+      
+      <button @click="add1">add</button>
   </div>
 </template>
 
 <script>
-
+import Vue from  'vue';
+import app1 from '../app1/app.vue';
 export default {
-  
+  name : 'app2',
+
+  beforeRouteLeave(to, from, next) {
+        // 设置下一个路由的 meta
+
+        // if(to.name == 'form'){
+        //   // console.log('if')
+        //     bus.$emit('setInclude','app2');
+
+        // }else{
+        //   // console.log('else')
+        //   bus.$emit('setInclude','app1')
+        // }
+        
+        
+        next();
+    },
   data () {
     return {
-      msg: '我是主页面',
-      page : '日历是主页面的组件',
+      com: {
+
+      },
+      
       initTime : '2018-01-30'
     }
   },
   methods : {
-    reverseMessage () {
+        add1(){
+          const Instance = new Vue({
+              render: function (createElement) {
+                return createElement(app1);
+              }
+          });
 
-      this.initTime = "2018-2-2";
-      // console.log(this.$data.initTime)
+          const component = Instance.$mount();
+          document.body.appendChild(component.$el);
+        },
+        add(){
+            this.com = {
+                component : 'calendar',
+                initTime : '2018-01-30'
+            }
+            
+        }
     }
-  }
 }
 </script>
 

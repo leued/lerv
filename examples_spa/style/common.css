@@ -3,3 +3,9 @@ body{
 	background: #fcfcfc;
 	padding: 20px;
 }
+
+#app {
+	h1 {
+		color: #c00;
+	}
+}

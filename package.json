@@ -1,6 +1,6 @@
 {
-  "name": "lerv",
-  "version": "1.0.2",
+  "name": "rockoffice",
+  "version": "1.2.5",
   "description": "",
   "main": "index.js",
   "bin": "index.js",
@@ -13,17 +13,21 @@
     "push": "git push -u origin master",
     "start": "webpack-dev-server --config build/webpack/webpack.config.js ",
     "start:spa": "webpack-dev-server --config build/webpack_spa/webpack.config.js ",
-    "build:spa": "webpack --config  build/webpack_spa/webpack.config.js"
+    "build:spa": "webpack --config  build/webpack_spa/webpack.config.js",
+    "mock": "json-server --watch mock/db.json",
+    "mockdev": "npm run mock & npm run start:spa"
   },
   "repository": {
     "type": "git",
-    "url": "git@leued.github.com:leued/lerv.git"
+    "url": "git+https://github.com/leued/lerv.git"
   },
   "author": "leued",
   "license": "ISC",
   "dependencies": {
+    "awe-dnd": "^0.3.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "jquery": "^3.2.1",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.5.9",
     "vue-router": "^3.0.1"
   },

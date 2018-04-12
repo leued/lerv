@@ -19,7 +19,7 @@
 	        		</div>
 	        	</div>
         	</div>
-          <test></test>
+          
         </div>
 </template>
 <script>
